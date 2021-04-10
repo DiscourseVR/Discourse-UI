@@ -7,7 +7,7 @@ using TMPro;
 public class gameLogic : MonoBehaviour
 {
     // Define the Objects
-    public GameObject start_timer, button, message;
+    public GameObject start_timer, button, message, poimessage, startmessage;
 
     private TextMeshPro Timer, Message;
 
@@ -35,7 +35,15 @@ public class gameLogic : MonoBehaviour
     }
     void getStatus()
     {
+      var message = "speaking";
       Message.SetText("message set");
+      if (message == "speaking") {
+        poimessage.SetActive(false);
+        startmessage.SetActive(true);
+      } else {
+        poimessage.SetActive(true);
+        startmessage.SetActive(false);
+      }
     }
 
     void OnTriggerEnter(Collider collision)
